@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+  <title>blogREST</title>
+  <style>
+    .resp {
+      overflow-x: scroll;
+      min-height: 100px;
+      white-space: nowrap;
+    }
+    .pan {
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="pan">
+    <h1>BlogREST testAPI</h1>
+
+    <div class="panel-group" id="accordion">
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+              Users API
+            </a>
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body pan">
+
+            <div class="row">
+              <h3>User signup</h3>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" placeholder="email" id="emailSU">
+                <input class="form-control" type="password" placeholder="password" id="passwordSU">
+                <div>
+                  <span>Admin: <input type="checkbox" id="checkSU"></span>
+                </div>
+                <button class="btn btn-primary" onClick="userSignup()">Send</button>
+              </div>
+              <div class="col-sm-6 resp" id="respSU"></div>
+            </div>
+
+            <div class="row">
+              <h3>User login</h3>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" placeholder="email" id="emailLG">
+                <input class="form-control" type="password" placeholder="password" id="passwordLG">
+                <button class="btn btn-primary" onClick="userLogin()">Send</button>
+              </div>
+              <div class="col-sm-6 resp" id="respLG"></div>
+            </div>
+
+            <div class="row">
+              <h3>User logout</h3>
+              <div class="col-sm-6">
+                <button class="btn btn-primary" onClick="userLogout()">Send</button>
+              </div>
+              <div class="col-sm-6 resp" id="respLGT"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" onclick="getMessages()">
+              Blog API
+            </a>
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse pan collapse">
+          <div class="panel-body pan">
+            <div class="row">
+              <h3>Create message</h3>
+              <div class="col-sm-6">
+                <textarea class="form-control" id="newMessage"></textarea>
+                <button class="btn btn-success" onClick="createMessage()">Create Message</button>
+              </div>
+              <div class="col-sm-6 resp" id="respNew"></div>
+            </div>
+
+            <div class="row">
+              <h3>Edit message</h3>
+              <div class="col-sm-6">
+                <textarea class="form-control" id="edMessage"></textarea>
+                <input class="form-control" type="text" placeholder="id" id="idMessage">
+                <button class="btn btn-warning" onClick="editMessage()">Edit Message</button>
+              </div>
+              <div class="col-sm-6 resp" id="respEdit"></div>
+            </div>
+
+            <h3>Messages</h3>
+            <div id="messages" class="pan"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="testAPI.js"></script>
+</body>
+</html>

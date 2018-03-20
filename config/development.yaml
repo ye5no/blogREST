@@ -1,0 +1,7 @@
+env: development
+address:
+  internal: 'http://127.0.0.1:8080'
+  external: 'http://127.0.0.1:8080'
+dirs:
+  public: 'public/'
+mongoURI: 'mongodb://user:password@ds213118.mlab.com:13118/blogrest'
